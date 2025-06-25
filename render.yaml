@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: eagles-backend
+    env: python
+    plan: free
+    region: oregon  # or ohio, virginia - choose closest to you
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 10000
+    # Add your environment variables here if you have any
+    # - key: OPENAI_API_KEY
+    #   fromService:
+    #     type: web
+    #     name: eagles-backend
+    #     envVarKey: OPENAI_API_KEY
+
+# Optional: Add database when you're ready for user features
+# databases:
+#   - name: eagles-db
+#     databaseName: eagles
+#     user: eagles_user
+#     plan: free

@@ -1,0 +1,41 @@
+cat > .gitignore << 'EOF'
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files - use S3 instead
+data/
+chroma_db/
+*.pdf
+*.db
+*.sqlite3
+
+# Cache
+.cache/
+*.cache
+
+# Other
+mkdir
+EOF
